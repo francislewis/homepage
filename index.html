@@ -4,11 +4,11 @@
 
   <title>Homepage</title>
 
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+
   <style type="text/css">
     body {
-      background :#00CED1;
-      background : radial-gradient(ellipse at center, #00CED1 0%, #eee 100%);
-      background : -moz-radial-gradient(#eee, #00CED1)
+       background-image: url("assets/maverickswave.jpg");
 
 			}
 			.keepcentered {
@@ -24,7 +24,7 @@
 			body {
 			font-family: 'Roboto', sans-serif;
 			font-style : normal;
-			color :#d64937;; // Change this to change the color of the colored font on the page.
+			color :#d64937;; // Change this to change the color of the colored font on the page
 			margin : 5px;
 			}
 			td, tr {
@@ -33,10 +33,10 @@
 			}
 			a {
 			font-weight: 100;
-      color: #577A3A;
+      color: #FFFFFF;
 			}
       a:visited {
-        color: #577A3A;
+        color: #FFFFFF;
       }
 			a:hover{
 			color: #eee;
@@ -45,6 +45,23 @@
 			text-decoration : none;
 			text-shadow: 0px 0px 0px #000;
 			}
+			.searchBar {
+  width:300px;
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  margin-left:-150px;
+}
+.searchBar input {
+  width:100%;
+  height:40px;
+  padding-left:5px;
+  padding-right:5px;
+  box-sizing:border-box;
+    border:1px solid #C6C6C6;
+  border-bottom:3px solid #C6C6C6;
+}
+
   </style>
 
 
@@ -58,9 +75,31 @@ window.onload=function(){
 
 
 </head>
+
+<div class="searchBar">
+<form method="get" action="http://www.google.com/search" _lpchecked="1">
+
+<center id="search">
+
+<input type="hidden" name="ie" value="UTF-8">
+<input type="hidden" name="oe" value="UTF-8">
+<table><tbody><tr><td>
+<input type="text" name="q" size="25" maxlength="255" value="" autofocus="" autocomplete="off">
+<input type="submit" name="btnG" value="Google Search">
+</td></tr></tbody></table>
+
+</center></form>
+  </div>
+</div>
+  <div class="loading">
+		<div class="loading-dot"></div>
+		<div class="loading-dot"></div>
+		<div class="loading-dot"></div>
+    <div class="loading-dot"></div>
+  </div>
 <body onload="updateClock()">
   		<title>start</title>
-		<link rel="shortcut icon" type="image/gif" href="http://jsfiddle.net/swanseaboyfran/R6hXF/1/show/%3C!--INSERT%20IMG%20URL%20HERE%3E--%3E">
+		<link rel="shortcut icon" type="image/gif" href="assets/loader.gif">
 
 
 
@@ -76,21 +115,21 @@ window.onload=function(){
 					<td>Shopping</td>
 				</tr>
 				<tr>
-					<td><a href="http://https//news.ycombinator.com/">Hacker News</a></td>
+					<td><a href="http://news.ycombinator.com/">Ycombinator</a></td>
                     <td><a href="http://www.reddit.com/r/linux">Linux</a></td>
 					<td><a href="http://www.youtube.com/">Youtube</a></td>
-                    <td><a href="http://www.jsfiddle.net/">jsfiddle</a></td>
+                    <td><a href="http://www.jsfiddle.net/">JSFiddle</a></td>
 					<td><a href="http://www.ebay.co.uk/">Ebay</a></td>
 				</tr>
 				<tr>
-					<td><a href="http://www.facebook.com/">FB</a></td>
+					<td><a href="http://www.facebook.com/">Facebook</a></td>
                     <td><a href="http://www.reddit.com/r/teenagers">Teenagers</a></td>
 					<td><a href="http://drive.google.com/">Drive</a></td>
 					<td><a href="http://www.github.com/francislewis/">Github</a></td>
                     <td><a href="http://www.humblebundle.com/">Humble Bundle</a></td>
 				</tr>
 				<tr>
-					<td><a href="http://www.cracked.com/">Cracked</a></td>
+					<td><a href="http://www.direktfastnews.com/">direktNews</a></td>
                     <td><a href="http://www.reddit.com/r/tifu">TIFU</a></td>
 					<td><a href="http://www.gmail.com/">Gmail</a></td>
 					<td><a href="http://www.codepen.io/">Codepen</a></td>
@@ -99,7 +138,7 @@ window.onload=function(){
 				<tr>
 					<td><a href="http://www.reddit.com/">Reddit</a></td>
 					<td><a href="http://www.reddit.com/r/askreddit">AskReddit</a></td>
-					<td><a href="http://www.reddit.com/"></a>Hey!</td>
+					<td><a href="http://docs.google.com"></a>Docs</td>
 					<td><a href="http://www.w3schools.com/">W3schools</a></td>
 					<td><a href="http://www.kickstarter.com/">Kickstarter</a></td>
 				</tr>
@@ -131,7 +170,30 @@ window.onload=function(){
 			setTimeout(updateClock, 1000);
 		}
 	</script>
+	<script>
+		function preloadImages(array) {
+    if (!preloadImages.list) {
+        preloadImages.list = [];
+    }
+    var list = preloadImages.list;
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                // remove image from the array once it's loaded
+                // for memory consumption reasons
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = array[i];
+    }
+}
 
+preloadImages(["assets/maverickswave.jpg"]);
+	</script>
+<script src="/js/shortcut.js"></script> 
 
 
 
